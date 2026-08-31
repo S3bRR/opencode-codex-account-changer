@@ -19,7 +19,7 @@ Add the tagged GitHub package to both OpenCode configuration files:
 
 ```json
 {
-  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.0"]
+  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.1"]
 }
 ```
 
@@ -27,13 +27,13 @@ Add the tagged GitHub package to both OpenCode configuration files:
 
 ```json
 {
-  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.0"]
+  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.1"]
 }
 ```
 
 Restart OpenCode. Use `/connect` to add ChatGPT accounts and `/accounts` to switch between them.
 
-Account switching is intentionally unavailable in `opencode attach` sessions because OpenCode does not expose remote credential discovery to TUI plugins.
+Account switching is not supported in `opencode attach` sessions because OpenCode does not expose remote credential discovery to TUI plugins.
 
 The plugin also recognizes account entries created by `@insd47/opencode-codex` under `openai/*` and legacy `OpenAI (...)` keys. It never deletes those entries.
 
@@ -56,7 +56,7 @@ The test suite uses synthetic credentials only.
 
 ## Compatibility
 
-Version `1.0.0` targets OpenCode `>=1.18.25 <1.19.0`. Pinning the supported range prevents silent breakage when OpenCode changes its plugin API.
+Version `1.0.1` targets OpenCode `>=1.18.25 <1.19.0`. Pinning the supported range prevents silent breakage when OpenCode changes its plugin API.
 
 ## License
 

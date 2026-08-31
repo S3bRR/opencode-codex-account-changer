@@ -41,7 +41,6 @@ describe("TUI plugin", () => {
     const api = {
       keymap: { registerLayer(value: any) { layer = value } },
       lifecycle: { onDispose() {} },
-      client: { client: { getConfig: () => ({ baseUrl: "http://localhost:4096" }) } },
       ui: {
         dialog: { replace(render: () => unknown) { render() }, clear() {} },
         DialogAlert: (props: unknown) => props,
