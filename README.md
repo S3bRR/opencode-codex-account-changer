@@ -24,7 +24,7 @@ Add the plugin to both OpenCode configuration files.
 }
 ```
 
-Restart OpenCode. Run `/connect` once for each ChatGPT account, then use `/accounts` to switch accounts.
+Restart OpenCode. Run `/connect` once for each ChatGPT account, then use `/accounts` to switch accounts mid session.
 
 ## Existing Accounts
 
