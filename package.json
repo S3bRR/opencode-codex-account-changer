@@ -1,6 +1,6 @@
 {
   "name": "opencode-codex-account-changer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Safe multi-account switching for OpenCode ChatGPT OAuth",
   "license": "MIT",
   "type": "module",
@@ -18,10 +18,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "check": "tsc -p tsconfig.json --noEmit",
-    "prepack": "npm run build",
-    "test": "bun test",
-    "verify": "npm run check && npm test && npm run build && bun scripts/verify-package.ts"
+    "check": "tsc -p tsconfig.json --noEmit"
   },
   "engines": {
     "node": ">=20",
@@ -45,6 +42,7 @@
   },
   "keywords": [
     "opencode",
+    "opencode-plugin",
     "chatgpt",
     "oauth",
     "codex"

@@ -1,63 +1,45 @@
 # OpenCode Codex Account Changer
 
-Fast, safe ChatGPT OAuth account switching for OpenCode `1.18.25`.
+Switch between multiple ChatGPT Plus/Pro OAuth accounts in OpenCode.
 
-## Features
-
-- `/accounts` account picker in the OpenCode TUI
-- Saves every successful ChatGPT OAuth login instead of overwriting the previous account
-- Keeps rotated access and refresh tokens synchronized
-- Uses OpenCode's auth API for every credential write
-- Never logs tokens, prompts, or account contents
-- Zero runtime dependencies
+Supports OpenCode CLI on macOS, Linux, and Windows with zero runtime dependencies.
 
 ## Install
 
-Add the tagged GitHub package to both OpenCode configuration files:
+Add the plugin to both OpenCode configuration files.
 
-`~/.config/opencode/opencode.json`
-
-```json
-{
-  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.1"]
-}
-```
-
-`~/.config/opencode/tui.json`
+`~/.config/opencode/opencode.json`:
 
 ```json
 {
-  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.1"]
+  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.2"]
 }
 ```
 
-Restart OpenCode. Use `/connect` to add ChatGPT accounts and `/accounts` to switch between them.
+`~/.config/opencode/tui.json`:
 
-Account switching is not supported in `opencode attach` sessions because OpenCode does not expose remote credential discovery to TUI plugins.
+```json
+{
+  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.2"]
+}
+```
 
-The plugin also recognizes account entries created by `@insd47/opencode-codex` under `openai/*` and legacy `OpenAI (...)` keys. It never deletes those entries.
+Restart OpenCode. Run `/connect` once for each ChatGPT account, then use `/accounts` to switch accounts.
 
-OpenCode still requires a canonical `openai` OAuth credential to initialize the provider. A normal `/connect` login creates it automatically.
+## Existing Accounts
+
+The plugin recognizes OpenCode's canonical `openai` OAuth credential, `openai/*` account entries, and legacy `OpenAI (...)` entries. It never deletes credentials.
 
 ## Security
 
-Credentials stay in OpenCode's standard `auth.json`. The TUI persists only a non-secret account ID; the server resolves that ID against its own local credentials. Credential updates go through OpenCode's SDK, OAuth binds only to `localhost`, and bearer tokens are attached only to requests rewritten to OpenAI's fixed Codex endpoint.
-
-Do not commit `auth.json`, logs, screenshots, or diagnostic output when reporting issues.
-
-## Development
-
-```sh
-npm install
-npm run verify
-```
-
-The test suite uses synthetic credentials only.
+- Credentials remain in OpenCode's standard `auth.json`.
+- The account picker stores only the selected non-secret account ID.
+- Tokens are never logged.
+- OAuth binds only to `localhost`.
+- Bearer tokens are sent only to OpenAI's fixed Codex endpoint.
 
 ## Compatibility
 
-Version `1.0.1` targets OpenCode `>=1.18.25 <1.19.0`. Pinning the supported range prevents silent breakage when OpenCode changes its plugin API.
+Version `1.0.2` supports OpenCode `>=1.18.25 <1.19.0`. Account switching is not supported through `opencode attach`.
 
-## License
-
-MIT
+MIT licensed.
