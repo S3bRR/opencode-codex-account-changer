@@ -13,13 +13,13 @@ Fast, safe ChatGPT OAuth account switching for OpenCode `1.18.25`.
 
 ## Install
 
-Add the package to both OpenCode configuration files:
+Add the tagged GitHub package to both OpenCode configuration files:
 
 `~/.config/opencode/opencode.json`
 
 ```json
 {
-  "plugin": ["opencode-codex-account-changer@1.0.0"]
+  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.0"]
 }
 ```
 
@@ -27,7 +27,7 @@ Add the package to both OpenCode configuration files:
 
 ```json
 {
-  "plugin": ["opencode-codex-account-changer@1.0.0"]
+  "plugin": ["github:S3bRR/opencode-codex-account-changer#v1.0.0"]
 }
 ```
 
